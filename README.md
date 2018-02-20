@@ -19,10 +19,10 @@ docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-
     --bootstrap-server kafka:9092 \
     --from-beginning \
     --property print.key=true \
-    --topic dbserver1.inventory.customers
+    --topic dbserver1.openmrs.obs
 
 # Modify records in the database via MySQL client
-docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
+docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD openmrs'
 
 # Shut down the cluster
 docker-compose -f docker-compose-mysql.yaml down

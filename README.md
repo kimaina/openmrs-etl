@@ -29,4 +29,9 @@ docker-compose -f docker-compose-mysql.yaml down
 
 # Portainer is a free open-source web application that runs as a container itself. You can install and start it with:
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+# building scala sing sbt
+sbt package
+sbt run 
+ 
 ```

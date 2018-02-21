@@ -23,21 +23,32 @@ case class BasicProducer(topic: String, brokerList:String, sync: Boolean) {
   //this is our actual connection to Kafka!
   private val producer = new KafkaProducer[String, String](kafkaProps)
 
+  // send and forget
+  // producer send msg to broker and doesn't care if it was received or not
+  // You might lose message be careful
   def send(value: String): Unit = {
     if(sync) sendSync(value) else sendAsync(value)
   }
 
+  // Send a message and wait untill we get a response
+  // this method is blocking because it limits you wait
+  // to wait for response before doing anything else
+  // throughput is minimized because of network delay
   def sendSync(value: String): Unit = {
     val record = new ProducerRecord[String, String](topic, value)
     try {
       producer.send(record).get()
+      //  Success: we get a record metadata object (most of the time we dont care abt it
     } catch {
+      // Exception: error message - we care because we want to log error message for analysis
       case e: Exception =>
         e.printStackTrace
         System.exit(1)
     }
   }
 
+  // - high throughput bcoz it is non-blocking
+  //   - send message and provide callback function to receive ack (record metadata obj)
   def sendAsync(value: String):Unit = {
     val record = new ProducerRecord[String, String](topic, value)
     val p = Promise[(RecordMetadata, Exception)]()

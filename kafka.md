@@ -72,20 +72,7 @@ Why partition a topic?
     - kafka doesnt allow more than 2 consumers to read on the same partition simultaneously
         (in order to avoid double reading of records)  
 
-
-
-                  
-#### TODO
-0. The first question how many brokers will we have? this will determine how scalable and fast the 
-    cluster will be.
-1. How many producers  & consumers will we need inorder to ingest and process encounter,
-    obs,orders,person e.t.c?
-2. How many partitions will we have per topic? (1 leader and n followers).
-    - we will definately need to come with an intelligent way of calculating number of partition per topic.
-    - keeping in mind that this is correlated with "fault tolerance" and speed of access 
-
-4. will we need consumer group in this design (keep in mind that the obs producer will have so many transctions in parallel)  
-5. 
+ 
 
 ## How it works
 - the following are cmds for starting up a kafka-debzium cluster using shell script (this can be docarized)
@@ -145,20 +132,66 @@ Why partition a topic?
             - isr shows the number of replicas that are insync with the leader
  
 * **kafka producer** 
-    - cmd: 
-    ```shell
-    bin/kafka-console-producer.sh --broker-list localhost:9092 
-            --topic abctopic
-    ```
-    - programmatically you need:
-        ![alt text](pics/Kafka%20producer%20api%20in%20java.PNG)
-        - step 1. to create  KafkaProducerObject (Producer <String>)
-            - 3 props are mandatory
-                    - bootstrap.servers. (provide multiple)
-                    - key.serializer. 
-                    - value.serializers
-                        
-        - step 2. then create (ProducerRecord <String>) (here u specify topic and message)
+ 
+Here is the producer Workflow
+![alt text](pics/producer-workflow.PNG)  
+ 1. create property object
+ 2. create producer object
+ 3. create producer record object
+ 4. Instantiate producer object
+ 5. Serialization -convert to byte
+ 6. Partitioner assign partition # depending on key and partition properties
+    - using key can result to 
+        ![alt text](pics/partitioner.PNG)
+    - using custom partitioner
+ 7. Producer keeps the message in memory on the **partition buffer**
+    - this is configurable
+ 8. Producer sends the batch to the broker
+    - if success the broker sends ack
+    - if error occures the producer will retry
+        - time and number of retry is configurable   
+    - callback and Ack
+        Approaches used by kafka
+        - Send and forget: 
+            - producer send msg to broker and doesn't care if it was received or not 
+            - you might lose message be careful
+        - Synchronous send:
+            - Send a message and wait untill we get a response
+                - Success: we get a record metadata object (most of the time we dont care abt it)
+                - Exception: error message - we care because we want log error message
+            - this method is blocking because it limits you wait to wait for response before doing anything else
+            - throughput is minimized because of network delay
+        
+        - Asynchronous send
+            - high throughput
+            - send message and provide callback function to receive ack (record metadata obj)
+     
+- cmd: 
+```shell
+bin/kafka-console-producer.sh --broker-list localhost:9092 
+        --topic abctopic
+```
+- programmatically you need:
+    ![alt text](pics/Kafka%20producer%20api%20in%20java.PNG)
+    - step 1: to create  KafkaProducerObject (Producer <String>)
+        - 3 props are mandatory
+            - bootstrap.servers. (provide multiple)
+            - key.serializer. 
+            - value.serializers
+                    
+    - step 2: then create (ProducerRecord <String>) 
+     ![alt text](pics/producer%20const%20summary.PNG)
+        - here u specify topicName and message (key and value)
+        - you can also specify timestamp and partition
+        - sending 1000 messages using same key will land in one partition (*if partition is not specified)
+        - If you don't send key, then kafka will distribute evenly your messages on partitions 
+        - if you hard code partition then your message will land on that specifid parttion
+        - if You dont set timeStamp, kafka will set it by default 
+        
+    - step 3: close that kafkaProducerObject
+   
+
+     
                             
 * **kafka consumer** 
     - cmd: 

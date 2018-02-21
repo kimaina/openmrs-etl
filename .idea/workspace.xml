@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61415657-c346-419f-80e4-d8179d5b9c4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/openmrs-etl-build.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/openmrs-etl.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,8 +57,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="319">
-                <caret line="177" column="23" lean-forward="false" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+              <first_editor relative-caret-position="216">
+                <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -86,8 +81,8 @@
       <file leaf-file-name="BasicProducer.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/example/basic/BasicProducer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#27#54#0" expanded="true" />
               </folding>
@@ -373,12 +368,12 @@
       <workItem from="1519112668960" duration="564000" />
       <workItem from="1519113367447" duration="5090000" />
       <workItem from="1519118692379" duration="5399000" />
-      <workItem from="1519126273888" duration="12281000" />
+      <workItem from="1519126273888" duration="15920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24829000" />
+    <option name="totallyTimeSpent" value="28468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="16" width="1297" height="780" extended-state="6" />
@@ -601,16 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/example/basic/BasicProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="48" />
-          <folding>
-            <element signature="e#27#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/example/basic/DemoBasicProducer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -643,11 +628,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/example/basic/BasicProducer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#27#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="319">
-            <caret line="177" column="23" lean-forward="false" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+          <first_editor relative-caret-position="216">
+            <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
             <folding />
           </first_editor>
           <second_editor />

@@ -43,7 +43,8 @@ sbt run
 2. How many partitions will we have per topic? 
     - we will definitely need to come with an intelligent way of calculating number of partition per topic.
     - keeping in mind that this is correlated with "fault tolerance" and speed of access 
-
+3. Will we allow automatic partition assignment or go manual?
+    - going manual is crucial for parallel processing
 4. will we need consumer group in this design 
     - keep in mind that the obs producer will have so many transactions in parallel
 5. What Replication factor (RF)? RF is number of copies of each partition stored on different brokers 
@@ -55,3 +56,17 @@ sbt run
     log.retention.bytes which determines retention. default is 7 days
     - log.retention.ms - retention by time (default is 7 day) **data will be deleted after 7 days** 
     - log.retention.bytes - retention by size (size is applicable to partition)
+    
+7. How many times  should we set the producer to retry after getting an error (default is 0)
+8. order of delivery in asynchronous send is not guaranteed? could this be a potential threat
+9. Do we need to use consumer group (this can scale up speed of processing)
+    - we will have to consider designing for rebalancing using offset
+    - why do we even need it ?
+        - allows you to parallel process a topic
+        - automatically manages partition assignment
+        - detects entry/exit/failure of a consumer and perform partition rebalancing
+10. What about autocommit? should we override it to false
+    - this will allow us to ensure that we don't lose data from the pipline incase our permanent storage service goes down just intime after data processing
+11. Schema evolution design strategy
+    - so that our producers and consumers can evolve - otherwise we will have to create duplicate producers
+     and consume in case of changes in the             

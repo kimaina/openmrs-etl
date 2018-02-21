@@ -13,8 +13,10 @@ case class BasicConsumer(zooKeeper: String, groupId: String, waitTime: String) {
   var streams:Map[String, KafkaStream[String,String]] = Map.empty
 
   kafkaProps.put("zookeeper.connect", zooKeeper)
+  // kafkaProps.put("bootstrap.servers", brokerList)
   kafkaProps.put("group.id",groupId)
-  kafkaProps.put("auto.commit.interval.ms","1000")
+  kafkaProps.put("auto.commit.interval.ms","1000") // default is 5
+  //kafkaProps.put("enabale.auto.commit","false") // default is true
   kafkaProps.put("auto.offset.reset","smallest");
   kafkaProps.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
   kafkaProps.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");

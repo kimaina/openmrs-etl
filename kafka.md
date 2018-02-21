@@ -135,14 +135,35 @@ Why partition a topic?
  
 Here is the producer Workflow
 ![alt text](pics/producer-workflow.PNG)  
- 1. create property object
+ 1. **create property object**
+    - acks 
+        - acks=0 (producer will not wait for ack), 
+            - loss of msgs
+            - high throughput
+            - no retries
+        - acks=1 (producer wil wait for ack from only the leader broker)
+            - chances of loss is thinnner
+            - followers might loose 
+        -  acks=all (leader will wait untill all followers send ack before sending ack to producer)
+            - slowest option
+            - no loss
+            - highest reliable but has  highest latency 
+        - retries - how many times the producer will retry after getting an error (default is 0)
+        - retry.backof.ms - time between 2 retries. default is 100 ms
+        - max.in.flight.requests.per.connection - in async send how many msg you can send without getting feedback
+            - increasing this value will increase memory usage and increase throughput
+            - order of delivery is not guaranteed (set it to 1 if you prefer order)
  2. create producer object
  3. create producer record object
  4. Instantiate producer object
  5. Serialization -convert to byte
+     - strings, int, double and long
+     - custom serializers but avoid using them (there are millions of generic serializers)
+     - a good example of custom serializers is avro
+     - creating a custom serializer you need deserializers
+  
  6. Partitioner assign partition # depending on key and partition properties
     - using key can result to 
-        ![alt text](pics/partitioner.PNG)
     - using custom partitioner
  7. Producer keeps the message in memory on the **partition buffer**
     - this is configurable
@@ -165,6 +186,7 @@ Here is the producer Workflow
         - Asynchronous send
             - high throughput
             - send message and provide callback function to receive ack (record metadata obj)
+            - disadvantage is you might loose order of your message log in the partition residing at the broker
      
 - cmd: 
 ```shell
@@ -201,6 +223,68 @@ bin/kafka-console-producer.sh --broker-list localhost:9092
     ```
                           
     - same command as producer (broker-list is same as bootstrap-sever)      
+    
+        ```scala
+           val kafkaProps = new Properties()
+            var streams:Map[String, KafkaStream[String,String]] = Map.empty
+          
+            kafkaProps.put("zookeeper.connect", zooKeeper)
+            kafkaProps.put("group.id",groupId)
+            kafkaProps.put("auto.commit.interval.ms","1000")
+            kafkaProps.put("auto.offset.reset","smallest");
+            kafkaProps.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+            kafkaProps.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        ```
+    
+    - **consumer group**
+        - enables reading of messages in parallel by a single application
+        - why do we even need it ?
+            - allows you to parallel process a topic
+            - automatically manages partition assignment
+            - detects entry/exit/failure of a consumer and perform partition rebalancing
+        - no complexity at producer side
+        - in this settings consumer do not share partition inorder to avoid duplicate reads
+        - so you need to have a higher number of partitions than consumers for this to 
+            work efficiently
+        - Rebalancing 
+            - what happens one one of the consumers excits the group or comes back to the group? 
+                - group coordinator - one of he brokers is elected as a group coordinator 
+                    - manages the list of group members
+                    - initiates a rebalance activity
+                    
+                - group leader 
+                    - executes the rebalance activity
+                    - sends new partition assignment to coordinator
+            - during rebalancing none of the consumers are allowed to read
+                    
+ 
+*  **kafka Offsets** 
+Types:
+    - current offset 
+        - kafka uses an integer index to mainatain the current position of a consumer
+        - so consumer doesn't get record twise
+    - committed offset
+        - offset position that is already processed by a consumer
+        - critical in rebalancing  
+Auto commit
+    - enabale.auto.commit - default is true
+    - auto.commit.interval.ms -  default is 5ms
+        - lower value yields repetition of processing
+        
+Manual commit
+- enabale.auto.commit - set it to False
+- auto.commit.interval.ms -  default is 5ms
+
+Two process of manual commit
+ - commit sync - blocking
+ - commit async - will not retry for obvious reasons  
+ - You need to take care when using this method since waiting long before polling will
+    make the broker think the consumer is dead hence triggering rebalancing
+    - there is a workaround
+        - onPartitionsRevoked listener - triggered just before broker takes away your partitions
+            - this is where you commit your current offset
+        - onPartitionsAssigned - triggered just after rebalancing completes
+            -  
                       
 #### Step 3: Configure for fault tolerance
 ![alt text](pics/fault%20tolerance.PNG)
@@ -258,3 +342,11 @@ bin/kafka-console-producer.sh --broker-list localhost:9092
     - kafka is only a message broker after delivering data it cleans itself
        
                         
+**Schema evolution design strategy**
+- so that our producers and consumers can evolve - otherwise we will have to create duplicate producers
+     and consume each time we change the structure of our message
+- this can be implemented using avro  
+    - avro defines schema using json   
+    
+- steps using avro
+<image> 

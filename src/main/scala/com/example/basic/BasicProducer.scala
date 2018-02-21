@@ -49,6 +49,7 @@ case class BasicProducer(topic: String, brokerList:String, sync: Boolean) {
 
   // - high throughput bcoz it is non-blocking
   //   - send message and provide callback function to receive ack (record metadata obj)
+  // - order of delivery of message is not guaranteed
   def sendAsync(value: String):Unit = {
     val record = new ProducerRecord[String, String](topic, value)
     val p = Promise[(RecordMetadata, Exception)]()

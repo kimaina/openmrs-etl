@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openmrs-etl.iml" filepath="$PROJECT_DIR$/.idea/modules/openmrs-etl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openmrs-etl-build.iml" filepath="$PROJECT_DIR$/.idea/modules/openmrs-etl-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tutorial.iml" filepath="$PROJECT_DIR$/.idea/tutorial.iml" />
     </modules>
   </component>

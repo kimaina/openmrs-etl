@@ -37,11 +37,11 @@ sbt run
 ```
 
 #### Necessary Concepts
-![alt text](pics/uses%20of%20kafka.PNG)
+![alt text](pics/uses%20of%20kafka.PNG =100x20)
 - kafka is a distributed streaming platform which can be used 
   for stream processing and a connector to import and export 
   bulk data from databases and other systems
-  ![alt text](pics/kafkaBasics.PNG)
+  ![alt text](pics/kafkaBasics.PNG =100x20)
   
    
 * **producer** 

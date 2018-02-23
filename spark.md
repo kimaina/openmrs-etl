@@ -1,18 +1,19 @@
-![alt text](pics/demo2.png)
+![alt text](http://2s7gjr373w3x22jf92z99mgm5w-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/spark-streaming-datanami.png)
 
 # Spark Design Architecture
 - Spark is a distributted computing platform mostly used in bigdata processing
 
 **Spark Streaming** 
 - Is a real-time processing tool that runs on top of the Spark engine.
-- enables high-throughput, fault-tolerant stream processing of live data streams. 
+- it enables high-throughput, fault-tolerant stream processing of live data streams. 
 - Why spark-streaming
-    
+    - https://www.datanami.com/2015/11/30/spark-streaming-what-is-it-and-whos-using-it/
     - Read from Kafka in parallel. In Kafka, a topic can have N partitions, and ideally we’d like to parallelize reading from those N partitions.
     - Real-time processing - Motivation of this project is to process events as they arrive
     - Write to Kafka from a Spark Streaming application, also, in parallel.
     - provides ability to stream different datatypes like rdd
-    - Read more: http://spark.apache.org/docs/1.1.1/streaming-programming-guide.html
+
+- Read more: http://spark.apache.org/docs/1.1.1/streaming-programming-guide.html
     
    
     
@@ -67,7 +68,7 @@ Start Kafka consumer:
 
     ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic output
     
-##TODO: Who will control spark cluster
+## TODO: Who will control spark cluster
 - Default is spark standalone but we have better services
 ![alt text](pics/who%20controle%20spark%20cluster.PNG)
 

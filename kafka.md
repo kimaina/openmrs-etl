@@ -1,7 +1,7 @@
-
+![alt text](pics/uses%20of%20kafka.PNG )
 
 ## Kafka Basics
-![alt text](pics/uses%20of%20kafka.PNG )
+
 - kafka is a distributed streaming platform which can be used 
   for stream processing and a connector to import and export 
   bulk data from databases and other systems

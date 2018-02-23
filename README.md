@@ -1,6 +1,6 @@
 # Openmrs ETL Streaming topology
+![alt text](pics/demo2.PNG )
 
-![alt text](architecture.png)
 
 This demo automatically deploys the topology of services as defined in [Debezium Tutorial](http://debezium.io/docs/tutorial/) document.
 
@@ -36,6 +36,7 @@ sbt run
  
 ```
 #### KAFKA CLUSTER DESIGN CONCERN
+![alt text](architecture.png)
 0. How many brokers will we have? this will determine how scalable and fast the 
     cluster will be.
 1. How many producers  & consumers will we need inorder to ingest and process encounter,

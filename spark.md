@@ -1,8 +1,10 @@
+![alt text](pics/microbatch.png)
+
 # Spark Design Architecture
 - Spark is a distributted computing platform mostly used in bigdata processing
 
 **Spark Streaming** 
--Is a real-time processing tool that runs on top of the Spark engine.
+- Is a real-time processing tool that runs on top of the Spark engine.
 - enables high-throughput, fault-tolerant stream processing of live data streams. 
 - Why spark-streaming
 

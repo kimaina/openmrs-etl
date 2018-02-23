@@ -1,5 +1,5 @@
 # Openmrs ETL Streaming topology
-![alt text](pics/demo2.PNG )
+![alt text](pics/demo2.png )
 
 
 This demo automatically deploys the topology of services as defined in [Debezium Tutorial](http://debezium.io/docs/tutorial/) document.

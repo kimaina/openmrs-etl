@@ -1,4 +1,4 @@
-![alt text](pics/microbatch.png)
+![alt text](pics/demo2.png)
 
 # Spark Design Architecture
 - Spark is a distributted computing platform mostly used in bigdata processing
@@ -14,8 +14,7 @@
     - provides ability to stream different datatypes like rdd
     - Read more: http://spark.apache.org/docs/1.1.1/streaming-programming-guide.html
     
-    
-
+   
     
 ## From kafka to spark engine
 ![alt text](http://spark.apache.org/docs/1.1.1/img/streaming-flow.png)
@@ -33,6 +32,14 @@ which represents a continuous stream of data.
  ![alt text](pics/rdd.PNG)  
 
 - http://spark.apache.org/docs/1.1.1/streaming-programming-guide.html
+
+
+## How spark works
+![alt text](pics/spark%20execution%20mode.PNG) 
+
+![alt text](pics/how%20spark%20process%20information%20in%20a%20cluster.PNG) 
+
+![alt text](pics/rdd%20parallel%20processing.PNG) 
 ## Quickstart guide
 Download latest Apache Kafka [distribution](http://kafka.apache.org/downloads.html) and un-tar it. 
 
@@ -60,7 +67,9 @@ Start Kafka consumer:
 
     ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic output
     
-
+##TODO: Who will control spark cluster
+- Default is spark standalone but we have better services
+![alt text](pics/who%20controle%20spark%20cluster.PNG)
 
 ## REF
 https://www.tutorialspoint.com/apache_kafka/apache_kafka_integration_spark.htm

@@ -37,6 +37,7 @@ sbt run
 ```
 #### KAFKA CLUSTER DESIGN CONCERN
 ![alt text](architecture.png)
+
 0. How many brokers will we have? this will determine how scalable and fast the 
     cluster will be.
 1. How many producers  & consumers will we need inorder to ingest and process encounter,

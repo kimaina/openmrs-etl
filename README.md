@@ -15,7 +15,7 @@ Make sure you have the latest docker and docker compose
 You will only have to run only 3 commands to get the entire cluster running. Open up your terminal and run these commands:
 
 ```shell
-# this will start the topology as defined in the next section
+# this will install  5 containers (mysql, kafka, debezium, openmrs, zookeeper, portainer and cAdvisor)
 # cd /media/sf_akimaina/openmrs-etl
 export DEBEZIUM_VERSION=0.8
 docker-compose -f docker-compose-mysql.yaml up

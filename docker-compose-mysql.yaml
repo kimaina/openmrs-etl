@@ -1,5 +1,20 @@
 version: '2'
 services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    restart: "always"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000
+  viz:
+    image: dockersamples/visualizer
+    container_name: viz
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9090:8080
   mysql:
     image: mysql:5.7
     ports:

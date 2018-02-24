@@ -5,21 +5,25 @@
  from various sources like openmrs, eid, e.t.c
  
 
-## Using Docker
+## Requirements
+Make sure you have the latest docker and docker compose
+1. Install [Docker](http://docker.io).
+2. Install [Docker-compose](http://docs.docker.com/compose/install/).
+3. Clone this repository
+
+# Getting started 
+You will only have to run only 3 commands to get the entire cluster running. Open up your terminal and run these commands:
 
 ```shell
 # this will start the topology as defined in the next section
 # cd /media/sf_akimaina/openmrs-etl
-export DEBEZIUM_VERSION=0.7
+export DEBEZIUM_VERSION=0.8
 docker-compose -f docker-compose-mysql.yaml up
 
 # Start MySQL connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-mysql.json
 
-# Veryfy MySQL connector
-# Make sure you see openmrs-connnector
-curl -H "Accept:application/json" localhost:8083/connectors/
-  
+ 
 # Consume messages from a Debezium topic
 docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
     --bootstrap-server kafka:9092 \
@@ -27,58 +31,60 @@ docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-
     --property print.key=true \
     --topic dbserver1.openmrs.obs
 
-# Modify records in the database via MySQL client
-docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
-
-  
-# Shut down the cluster
-docker-compose -f docker-compose-mysql.yaml down
-
-# Install Portainer to monitor and manage your container
-docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 
 # building scala sing sbt
 sbt package
 sbt run 
  
+
 ```
+If everything runs as expected, expect to see all these containers running:
+![alt text](pics/containers.png )
+ You can access this here: http://localhost:9090
+
+## Openmrs
 Openmrs Application will be eventually accessible on http://localhost:8080/openmrs.
 Credentials on shipped demo data:
   - Username: admin
   - Password: Admin123
   
-## Manual Way
+## Spark Jobs Monitor & Visualization
+http://localhost:4040
+
+## Docker Container Manager: Portainer
+http://localhost:9000
+  
+# MySQL client
+
+    docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
+    
+
+## Schema Changes Topic
+ 
+    docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh     --bootstrap-server kafka:9092     --from-beginning     --property print.key=true     --topic schema-changes.openmrs
+
+## How to Verify MySQL connector (Debezium)
+ 
+    curl -H "Accept:application/json" localhost:8083/connectors/
+
+## Shut down the cluster
+    
+    docker-compose -f docker-compose-mysql.yaml down
+
+## Docker Container Visualization: Viz
+http://localhost:9090
+  
+## Cluster Design
 - This section attempts to explain how the clusters work by breaking everything down
-- Everything here has been docerized so you don't need to do this in production
+- Everything here has been dockerized so you don't need to do these steps
 
-Download latest Apache Kafka [distribution](http://kafka.apache.org/downloads.html) and un-tar it. 
-
-Start ZooKeeper server:
-
-    ./bin/zookeeper-server-start.sh config/zookeeper.properties
-
-Start Kafka server:
-
-    ./bin/kafka-server-start.sh config/server.properties
-
-Create input topic:
-
-    ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic input
-
-Create output topic:
-
-    ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic output
-
-Start Kafka producer:
-
-    ./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic input
-
-Start Kafka consumer:
-
-    ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic output
+* Kafka Cluster: [Kafka](kafka.md)
+* Spark Cluster: [Spark](spark.md)
+* Debezium Layer: [Debezium](debezium.md)
 
 
-#### KAFKA CLUSTER DESIGN CONCERN
+
+## KAFKA CLUSTER DESIGN CONCERN
 ![alt text](architecture.png)
 
 0. How many brokers will we have? this will determine how scalable and fast the 

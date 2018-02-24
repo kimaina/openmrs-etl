@@ -30,10 +30,6 @@ docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-
 # Modify records in the database via MySQL client
 docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
 
-Application will be eventually accessible on http://localhost:8080/openmrs.
-Credentials on shipped demo data:
-  - Username: admin
-  - Password: Admin123
   
 # Shut down the cluster
 docker-compose -f docker-compose-mysql.yaml down

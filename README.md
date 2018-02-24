@@ -30,9 +30,12 @@ sbt run
  
 
 ```
+
 If everything runs as expected, expect to see all these containers running:
+
 ![alt text](pics/containers.png )
- You can access this here: http://localhost:9090
+
+You can access this here: http://localhost:9000
 
 ## Openmrs
 Openmrs Application will be eventually accessible on http://localhost:8080/openmrs.

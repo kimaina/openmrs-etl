@@ -71,14 +71,14 @@ http://localhost:9090
  #### Consume messages from a Debezium topic [obs,encounter,person, e.t.c]
  - All you have to do is change the topic to  --topic dbserver1.openmrs.<tableName>
  
- 
+ ```shell
     docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
      --bootstrap-server kafka:9092 \
      --from-beginning \
      --property print.key=true \
      --topic dbserver1.openmrs.obs
-  
-## Cluster Design
+ ``` 
+## Cluster Design Architecture
 - This section attempts to explain how the clusters work by breaking everything down
 - Everything here has been dockerized so you don't need to do these steps
     

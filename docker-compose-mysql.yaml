@@ -1,29 +1,45 @@
 version: '2'
 services:
   mysql:
-    image: psbrandt-docker-openmrs-refapp-debian.bintray.io/mysql:2.3.1
+    image: mysql:5.7
     ports:
       - "3306:3306"
     container_name: mysql
     environment:
-         - MYSQL_ROOT_PASSWORD=openmrs
-         - MYSQL_USER=openmrs
-         - MYSQL_PASSWORD=openmrs
-  openmrs-refapp-tomcat:
-    build: tomcat
+          - MYSQL_DATABASE=openmrs
+          - MYSQL_ROOT_PASSWORD=debezium
+          - MYSQL_USER=mysqluser
+          - MYSQL_PASSWORD=mysqlpw
+          - MYSQL_ROOT_HOST=172.%    # Allow docker contatiners to connect to mysql
+    volumes:
+        - ./mysql.cnf:/etc/mysql/conf.d/custom.cnf
+        - ./dbdump:/docker-entrypoint-initdb.d
+
+  openmrs:
+    restart: "always"
+    image: openmrs/openmrs-reference-application-distro:latest
+    container_name: openmrs
+    depends_on:
+      - mysql
+    links:
+      - mysql:mysql
     ports:
       - "8080:8080"
-      - "5000:5000"
-    container_name: openmrs-refapp-tomcat
-    links:
-      - mysql
-
+    environment:
+      DB_DATABASE: 'openmrs'
+      DB_HOST: mysql
+      DB_USERNAME: 'mysqluser'
+      DB_PASSWORD: 'mysqlpw'
+      #DB_CREATE_TABLES: 'true'
+      #DB_AUTO_UPDATE: 'true'
+      #MODULE_WEB_ADMIN: 'true'
   zookeeper:
     image: debezium/zookeeper:${DEBEZIUM_VERSION}
     ports:
      - 2181:2181
      - 2888:2888
      - 3888:3888
+    container_name: zookeeper
   kafka:
     image: debezium/kafka:${DEBEZIUM_VERSION}
     ports:
@@ -32,6 +48,7 @@ services:
      - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
+    container_name: kafka
   connect:
     image: debezium/connect:${DEBEZIUM_VERSION}
     ports:
@@ -44,3 +61,4 @@ services:
      - GROUP_ID=1
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+    container_name: mysql-connect

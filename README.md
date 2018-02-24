@@ -1,4 +1,4 @@
-# Openmrs ETL Streaming topology
+# Openmrs ETL Streaming Topology
 ![alt text](pics/demo2.png )
 
 - The motivation of this project is to provide ability of processing data in **real-time**
@@ -8,9 +8,35 @@
 ## Using Docker
 
 ```shell
-# Start the topology as defined in http://debezium.io/docs/tutorial/
+# this will start the topology as defined in the next section
+# cd /media/sf_akimaina/openmrs-etl
 export DEBEZIUM_VERSION=0.7
 docker-compose -f docker-compose-mysql.yaml up
+
+# Start MySQL connector
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-mysql.json
+
+# Veryfy MySQL connector
+# Make sure you see openmrs-connnector
+curl -H "Accept:application/json" localhost:8083/connectors/
+  
+# Consume messages from a Debezium topic
+docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
+    --bootstrap-server kafka:9092 \
+    --from-beginning \
+    --property print.key=true \
+    --topic dbserver1.openmrs.obs
+
+# Modify records in the database via MySQL client
+docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
+
+Application will be eventually accessible on http://localhost:8080/openmrs.
+Credentials on shipped demo data:
+  - Username: admin
+  - Password: Admin123
+  
+# Shut down the cluster
+docker-compose -f docker-compose-mysql.yaml down
 
 # Install Portainer to monitor and manage your container
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
@@ -20,6 +46,42 @@ sbt package
 sbt run 
  
 ```
+Openmrs Application will be eventually accessible on http://localhost:8080/openmrs.
+Credentials on shipped demo data:
+  - Username: admin
+  - Password: Admin123
+  
+## Manual Way
+- This section attempts to explain how the clusters work by breaking everything down
+- Everything here has been docerized so you don't need to do this in production
+
+Download latest Apache Kafka [distribution](http://kafka.apache.org/downloads.html) and un-tar it. 
+
+Start ZooKeeper server:
+
+    ./bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start Kafka server:
+
+    ./bin/kafka-server-start.sh config/server.properties
+
+Create input topic:
+
+    ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic input
+
+Create output topic:
+
+    ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic output
+
+Start Kafka producer:
+
+    ./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic input
+
+Start Kafka consumer:
+
+    ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic output
+
+
 #### KAFKA CLUSTER DESIGN CONCERN
 ![alt text](architecture.png)
 

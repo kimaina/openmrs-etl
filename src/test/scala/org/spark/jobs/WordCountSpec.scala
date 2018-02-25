@@ -19,7 +19,7 @@ package org.spark.jobs
 import scala.collection.mutable
 import scala.concurrent.duration._
 
-import example.WordCount._
+import org.spark.jobs.WordCount._
 import org.apache.spark.rdd.RDD
 import org.spark.stream.SparkStreamingSpec
 import org.scalatest._

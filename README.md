@@ -47,11 +47,12 @@ Credentials on shipped demo data:
   
 ## Spark Jobs Monitor & Visualization
 http://localhost:4040
+![alt text](pics/spark%20jobs.png )
 
 ## Docker Container Manager: Portainer
 http://localhost:9000
 
-![alt text](pics/spark%20jobs.png )
+
   
 # MySQL client
 

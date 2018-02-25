@@ -84,7 +84,7 @@ object WordCountJobConfig {
 
   def apply(applicationConfig: Config): WordCountJobConfig = {
 
-    val config = applicationConfig.getConfig("wordCountJob")
+    val config = applicationConfig.getConfig("config")
 
     new WordCountJobConfig(
       config.as[String]("input.topic"),

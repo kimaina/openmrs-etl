@@ -4,7 +4,7 @@
 		module="openmrs-etl-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180224170359"
+		publication="20180224211749"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

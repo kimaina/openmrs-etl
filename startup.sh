@@ -10,6 +10,6 @@
 
 
 # Start Kafka consumer:
- docker-compose -f docker-compose.yaml exec kafka /kafka/bin/kafka-consumer.sh \
+ docker-compose -f docker-compose.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
      --bootstrap-server kafka:9092 \
      --topic output

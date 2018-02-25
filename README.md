@@ -1,4 +1,4 @@
-# Openmrs ETL Streaming Topology
+# Openmrs Real-time Streaming Topology
 ![alt text](pics/demo2.png )
 
 - The motivation of this project is to provide ability of processing data in **real-time**
@@ -15,16 +15,17 @@ Make sure you have the latest docker and docker compose
 You will only have to run only 3 commands to get the entire cluster running. Open up your terminal and run these commands:
 
 ```shell
-# this will install  5 containers (mysql, kafka, debezium, openmrs, zookeeper, portainer and cAdvisor)
+# this will install  5 containers (mysql, kafka, connect (dbz), openmrs, zookeeper, portainer and cAdvisor)
 # cd /media/sf_akimaina/openmrs-etl
 export DEBEZIUM_VERSION=0.8
-docker-compose -f docker-compose-mysql.yaml up
+docker-compose -f docker-compose.yaml up
 
 # Start MySQL connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-mysql.json
 
 
-# building scala sing sbt
+# build and run spark cluster. (realtime streaming and processing)
+# https://www.youtube.com/watch?v=MNPI925PFD0
 sbt package
 sbt run 
  
@@ -36,6 +37,7 @@ If everything runs as expected, expect to see all these containers running:
 ![alt text](pics/containers.png )
 
 You can access this here: http://localhost:9000
+
 
 ## Openmrs
 Openmrs Application will be eventually accessible on http://localhost:8080/openmrs.
@@ -51,12 +53,12 @@ http://localhost:9000
   
 # MySQL client
 
-    docker-compose -f docker-compose-mysql.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
+    docker-compose -f docker-compose.yaml exec mysql bash -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD inventory'
     
 
 ## Schema Changes Topic
  
-    docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh     --bootstrap-server kafka:9092     --from-beginning     --property print.key=true     --topic schema-changes.openmrs
+    docker-compose -f docker-compose.yaml exec kafka /kafka/bin/kafka-console-consumer.sh     --bootstrap-server kafka:9092     --from-beginning     --property print.key=true     --topic schema-changes.openmrs
 
 ## How to Verify MySQL connector (Debezium)
  
@@ -64,18 +66,19 @@ http://localhost:9000
 
 ## Shut down the cluster
     
-    docker-compose -f docker-compose-mysql.yaml down
+    docker-compose -f docker-compose.yaml down
 
 ## cAdvisor: Docker & System Performance
 http://localhost:9090
 
 ## Debezium Topics
+![alt text](pics/kafka-topics-dbz.png )
  
  #### Consume messages from a Debezium topic [obs,encounter,person, e.t.c]
  - All you have to do is change the topic to  --topic dbserver1.openmrs.<tableName>
  
  ```shell
-    docker-compose -f docker-compose-mysql.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
+    docker-compose -f docker-compose.yaml exec kafka /kafka/bin/kafka-console-consumer.sh \
      --bootstrap-server kafka:9092 \
      --from-beginning \
      --property print.key=true \
@@ -89,6 +92,29 @@ http://localhost:9090
     * Spark Cluster: [Spark](spark.md)
     * Debezium Layer: [Debezium](debezium.md)
 
+## Directory Structure
+```
+project
+│   README.md 
+│   kafka.md  
+│   debezium.md
+│   spark.md
+│   docker-compose.yaml
+│   build.sbt
+│
+└───src
+│   │   file011.txt
+│   │   file012.txt
+│   │
+│   └───subfolder1
+│       │   file111.txt
+│       │   file112.txt
+│       │   ...
+│   
+└───project
+    │   file021.txt
+    │   file022.txt
+```
 
 
 ## KAFKA CLUSTER DESIGN CONCERN

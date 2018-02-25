@@ -50,6 +50,8 @@ http://localhost:4040
 
 ## Docker Container Manager: Portainer
 http://localhost:9000
+
+![alt text](pics/spark%20jobs.png )
   
 # MySQL client
 

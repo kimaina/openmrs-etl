@@ -20,15 +20,12 @@ You will only have to run only 3 commands to get the entire cluster running. Ope
 export DEBEZIUM_VERSION=0.8
 docker-compose -f docker-compose.yaml up
 
-# Start MySQL connector
+# Start MySQL connector (VERY IMPORTANT)
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-mysql.json
 
 
-# build and run spark cluster. (realtime streaming and processing)
-# https://www.youtube.com/watch?v=MNPI925PFD0
-sbt package
-sbt run 
- 
+# Realtime streaming and processing
+Please use either spark(scala)/pyspark/ksql. For this project I'll demo using ksql
 
 ```
 
@@ -71,8 +68,6 @@ http://localhost:9000
     
     docker-compose -f docker-compose.yaml down
 
-## cAdvisor: Docker & System Performance
-http://localhost:9090
 
 ## Debezium Topics
 ![alt text](pics/kafka-topics-dbz.png )
@@ -87,6 +82,33 @@ http://localhost:9090
      --property print.key=true \
      --topic dbserver1.openmrs.obs
  ``` 
+ 
+## Consume messages using KSQL
+![alt text](https://docs.confluent.io/current/_images/ksql-architecture-and-components.png)
+ 
+ #### Start KSQL CLI
+ 
+ ```shell
+   docker run --network openmrs-etl_default --rm --interactive --tty \
+       confluentinc/cp-ksql-cli:5.2.2 \
+       http://ksql-server:8088
+
+ ``` 
+ After running the above command a KSQL CLI will be presented interactive
+ 
+ #### RUN KSQL 
+ You can call any KSQL streaming sql command as highlighted here 
+ https://docs.confluent.io/current/ksql/docs/tutorials/index.html
+ Here are a few examples:
+ 
+ ```shell
+   SHOW TOPICS;
+
+ ``` 
+ 
+ ![alt text](pics/ksql.png )
+ 
+ For more KSQL streaming command please visit  https://docs.confluent.io/current/ksql
 ## Cluster Design Architecture
 - This section attempts to explain how the clusters work by breaking everything down
 - Everything here has been dockerized so you don't need to do these steps
@@ -103,7 +125,7 @@ project
 │   debezium.md
 │   spark.md
 │   docker-compose.yaml
-│   build.sbt
+│   
 │
 └───src
 │   │   file011.txt

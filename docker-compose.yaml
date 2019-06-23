@@ -8,16 +8,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 9000:9000
-  viz:
-    image: google/cadvisor:latest
-    container_name: cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-      - 9090:8080
   mysql:
     image: mysql:5.7
     ports:
@@ -141,6 +131,20 @@ services:
       - kafka
       - kafka-schema-registry
       - kafka-rest-proxy
+
+  ksql-server:
+    container_name: ksql-server
+    image: "confluentinc/cp-ksql-server:5.2.2"
+    ports:
+      - 8088:8088
+    depends_on:
+      - kafka
+      - kafka-schema-registry
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: kafka:9092
+      KSQL_LISTENERS: http://ksql-server:8088
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
+
 
 ## Not really important
 #  kafka-connect-ui:

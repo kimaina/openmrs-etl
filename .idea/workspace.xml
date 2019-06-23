@@ -2,40 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61415657-c346-419f-80e4-d8179d5b9c4b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/org/spark/speed/BasicConsumer.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/org/spark/speed/DemoBasicConsumer.scala" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" afterPath="$PROJECT_DIR$/docker-compose.yaml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/openmrs-etl-build/scala_2.12/sbt_1.0/0.1-SNAPSHOT/resolved.xml.properties" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/openmrs-etl-build/scala_2.12/sbt_1.0/0.1-SNAPSHOT/resolved.xml.properties" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/openmrs-etl-build/scala_2.12/sbt_1.0/0.1-SNAPSHOT/resolved.xml.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/openmrs-etl-build/scala_2.12/sbt_1.0/0.1-SNAPSHOT/resolved.xml.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-compile-internal.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-compile-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-compile.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-compile.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-optional.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-optional.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-plugin.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-plugin.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-pom.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-pom.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-provided.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-provided.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-runtime-internal.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-runtime-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-runtime.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-runtime.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-scala-tool.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-scala-tool.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-test-internal.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-test-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-test.xml" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-openmrs-etl-build-test.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/org/spark/jobs/NewPatientDataJob.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/spark/jobs/NewPatientDataJob.scala" />
+      <change beforePath="$PROJECT_DIR$/.idea/tutorial.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tutorial.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
     <ignored path="$PROJECT_DIR$/project/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,48 +44,37 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="openmrs-etl" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NewPatientDataJob.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/NewPatientDataJob.scala">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register-mysql.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-              <folding>
-                <element signature="e#26#70#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCountJob.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCountJob.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="35" />
-              <folding>
-                <element signature="e#26#73#0" expanded="true" />
-              </folding>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="433">
+                <caret line="106" column="5" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-compose.yaml" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.sbt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sbt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="60" column="40" lean-forward="false" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="151" column="42" lean-forward="true" selection-start-line="151" selection-start-column="42" selection-end-line="151" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -180,23 +143,17 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
         <option value="$PROJECT_DIR$/startup.sh" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/resources/application.conf" />
         <option value="$PROJECT_DIR$/src/test/scala/org/spark/jobs/WordCountSpec.scala" />
-        <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCountJob.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/spark/speed/BasicConsumer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/spark/speed/DemoBasicConsumer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/spark/jobs/NewPatientDataJob.scala" />
+        <option value="$PROJECT_DIR$/docker-compose.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -212,22 +169,10 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,88 +180,25 @@
               <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
               <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-              <item name="jobs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-              <item name="speed" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openmrs-etl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openmrs-etl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-              <item name="stream" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -338,70 +220,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NewPatientDataJob">
+  <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="DemoBasicConsumer" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.example.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.basic.DemoBasicProducer" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="openmrs-etl" />
-      <envs />
-    </configuration>
-    <configuration name="DemoBasicProducer" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.example.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.basic.DemoBasicProducer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="tutorial" />
-      <envs />
-    </configuration>
-    <configuration name="NewPatientDataJob" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.spark.jobs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.spark.jobs.NewPatientDataJob" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="root" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -477,18 +302,63 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.DemoBasicConsumer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.DemoBasicProducer" />
-      <item index="2" class="java.lang.String" itemvalue="Application.NewPatientDataJob" />
-    </list>
-    <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.NewPatientDataJob" />
-        <item index="1" class="java.lang.String" itemvalue="Application.DemoBasicProducer" />
-        <item index="2" class="java.lang.String" itemvalue="Application.DemoBasicConsumer" />
-      </list>
-    </recent_temporary>
+    <configuration name="DemoBasicConsumer" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.example.basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.example.basic.DemoBasicProducer" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="openmrs-etl" />
+      <envs />
+    </configuration>
+    <configuration name="DemoBasicProducer" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.example.basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.example.basic.DemoBasicProducer" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="tutorial" />
+      <envs />
+    </configuration>
+    <configuration name="NewPatientDataJob" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.spark.jobs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.spark.jobs.NewPatientDataJob" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="root" />
+      <envs />
+    </configuration>
   </component>
   <component name="SbtLocalSettings">
     <option name="lastUpdateTimestamp" value="1519524639547" />
@@ -520,9 +390,6 @@
       <projects_view />
     </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -548,83 +415,57 @@
       <workItem from="1519523317372" duration="445000" />
       <workItem from="1519524116104" duration="2011000" />
       <workItem from="1519526315808" duration="10133000" />
+      <workItem from="1561313648453" duration="5350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150318000" />
+    <option name="totallyTimeSpent" value="155668000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="16" width="1297" height="780" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="1024" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="sbt" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14749035" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27527216" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298639" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33281493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25620496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298639" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="sbt" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14749035" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31104198" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24659728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498366" visible="true" weight="0.2504052" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.501634" side_tool="true" visible="true" weight="0.2504052" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32882884" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39968896" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3281493" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3108108" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3281493" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="13" weight="0.3281493" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="sbt" order="9" weight="0.14749035" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project/assembly.sbt" />
@@ -637,8 +478,8 @@
     <entry file="file://$PROJECT_DIR$/kafka.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="12" />
+          <first_editor>
+            <caret lean-forward="true" selection-end-column="12" />
           </first_editor>
           <second_editor />
         </state>
@@ -646,26 +487,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml" />
     <entry file="file://$PROJECT_DIR$/mysql.cnf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pics/scriptFile.scala" />
-    <entry file="file://$PROJECT_DIR$/register-mysql.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/scriptFile.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/openmrs/spark/SparkApplication.scala" />
     <entry file="file://$PROJECT_DIR$/src/test/scala/org/apache/spark/streaming/ClockWrapper.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -673,28 +503,24 @@
     <entry file="file://$PROJECT_DIR$/src/test/scala/org/spark/stream/SparkSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-186">
-          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/org/spark/stream/SparkStreamingSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/logback-test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -702,7 +528,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="-111">
-            <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="6" />
+            <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="27" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
@@ -712,37 +538,25 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="1152">
-            <caret line="64" column="49" lean-forward="false" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="49" />
+            <caret line="64" column="49" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="49" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/project/build.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -754,39 +568,28 @@
     <entry file="file://$PROJECT_DIR$/scalastyle-config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="92" column="17" lean-forward="false" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
-          <folding />
+          <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/startup.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="234">
-            <caret line="85" column="19" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="87" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCountKryoRegistration.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -794,7 +597,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaPayloadStringCodec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-108">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -802,14 +605,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaPayloadAvroSpecificCodec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state>
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -817,7 +620,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaProducerFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-253">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -833,7 +636,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaDStreamSink.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="17" />
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -841,7 +644,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaPayload.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -849,38 +652,14 @@
     <entry file="file://$PROJECT_DIR$/src/test/scala/org/spark/jobs/WordCountSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-287">
-          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaDStreamSource.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="19" column="19" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="19" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="60" column="40" lean-forward="false" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
+          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ref/DemoBasicProducer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-193">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -888,7 +667,7 @@
     <entry file="file://$PROJECT_DIR$/ref/BasicConsumer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -896,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/speed/BasicConsumer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="24" />
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="e#25#52#0" expanded="false" />
           </folding>
@@ -906,7 +685,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/speed/DemoBasicConsumer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding />
         </state>
       </provider>
@@ -914,7 +693,7 @@
     <entry file="file://$PROJECT_DIR$/ref/DemoBasicConsumer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="26" />
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -922,7 +701,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCount.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
           <folding />
         </state>
       </provider>
@@ -930,19 +709,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/SparkStreamingApplication.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="e#28#75#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCountJob.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="35" />
-          <folding>
-            <element signature="e#26#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -950,10 +719,52 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/NewPatientDataJob.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="e#26#70#0" expanded="true" />
-          </folding>
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/jobs/WordCountJob.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/spark/stream/KafkaDStreamSource.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register-mysql.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="433">
+            <caret line="106" column="5" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="151" column="42" lean-forward="true" selection-start-line="151" selection-start-column="42" selection-end-line="151" selection-end-column="42" />
         </state>
       </provider>
     </entry>

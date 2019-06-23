@@ -94,9 +94,9 @@ http://localhost:9000
        http://ksql-server:8088
 
  ``` 
- After running the above command a KSQL CLI will be presented interactive
+ After running the above command, a KSQL CLI will be presented interactively
  
- #### RUN KSQL 
+ #### Run KSQL Streaming SQL 
  You can call any KSQL streaming sql command as highlighted here 
  https://docs.confluent.io/current/ksql/docs/tutorials/index.html
  Here are a few examples:

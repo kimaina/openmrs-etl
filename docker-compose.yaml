@@ -50,14 +50,17 @@ services:
     container_name: zookeeper
   kafka:
     image: debezium/kafka:${DEBEZIUM_VERSION}
+    container_name: kafka
     ports:
      - 9092:9092
+    expose:
+     - 9092
     links:
      - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
      - CREATE_TOPICS= "input:1:3,output:1:3"
-    container_name: kafka
+    
   connect:
     image: debezium/connect:${DEBEZIUM_VERSION}
     ports:
@@ -144,6 +147,22 @@ services:
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
       KSQL_LISTENERS: http://ksql-server:8088
       KSQL_KSQL_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
+
+  kafka_manager:
+    image: hlebalbau/kafka-manager:1.3.3.18
+    container_name: kafka-manager
+    ports:
+      - "8089:8089"
+    expose:
+      - 8089  
+    depends_on:
+      - zookeeper
+      - kafka
+    command: -Dconfig.file=/kafka-manager/conf/application.conf -Dapplication.home=/kafkamanager  
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
 
 
 ## Not really important

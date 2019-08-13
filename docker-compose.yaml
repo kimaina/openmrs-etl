@@ -164,7 +164,7 @@ services:
       APPLICATION_SECRET: letmein
       KM_ARGS: -Djava.net.preferIPv4Stack=true
 
-
+# TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker
 ## Not really important
 #  kafka-connect-ui:
 #    container_name: kafka-connect-ui

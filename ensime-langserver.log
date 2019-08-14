@@ -32089,3 +32089,335 @@ Content-Length: 64
 [2019-08-13 16:04:07,720] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"$/cancelRequest","params":{"id":626}}
 [2019-08-13 16:04:07,720] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(626)
 [2019-08-13 16:04:07,720] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(626)
+[2019-08-13 16:04:51,153] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 170
+[2019-08-13 16:04:51,153] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 170
+[2019-08-13 16:04:51,154] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/SparkApplication.scala"}}}
+[2019-08-13 16:04:51,154] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/SparkApplication.scala"}}}
+[2019-08-13 16:04:51,154] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/SparkApplication.scala from Ensime.
+[2019-08-13 16:04:51,154] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/SparkApplication.scala from Ensime.
+[2019-08-13 16:04:51,174] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2315
+[2019-08-13 16:04:51,174] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2315
+[2019-08-13 16:04:51,174] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala","languageId":"scala","version":1,"text":"// Copyright (C) 2011-2012 the original author or authors.\n// See the LICENCE.txt file distributed with this work for additional\n// information regarding copyright ownership.\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n// http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage org.spark.stream\n\nimport scala.concurrent.duration.FiniteDuration\n\nimport org.apache.spark.streaming._\nimport org.scalatest._\n\ntrait SparkStreamingSpec extends SparkSpec {\n  this: Suite =>\n\n  import java.nio.file.Files\n  import java.util.concurrent.TimeUnit\n\n  import ClockWrapper._\n\n  private var sscVar: StreamingContext = _ // scalastyle:ignore var.field\n\n  override def beforeAll(): Unit = {\n    super.beforeAll()\n\n    sscVar = new StreamingContext(sc, batchDuration)\n    sscVar.checkpoint(checkpointDir)\n  }\n\n  def batchDuration: Duration = Seconds(1)\n\n  def checkpointDir: String = Files.createTempDirectory(this.getClass.getSimpleName).toUri.toString\n\n  override def afterAll(): Unit = {\n    if (sscVar != null) {\n      sscVar.stop(stopSparkContext = false, stopGracefully = false)\n      sscVar = null // scalastyle:ignore null\n    }\n\n    super.afterAll()\n  }\n\n  override def sparkConfig: Map[String, String] = {\n    super.sparkConfig + (\"spark.streaming.clock\" -> \"org.apache.spark.streaming.util.ManualClock\")\n  }\n\n  def ssc: StreamingContext = sscVar\n\n  def advanceClock(timeToAdd: FiniteDuration): Unit = {\n    advance(sscVar, timeToAdd)\n  }\n\n  def advanceClockOneBatch(): Unit = {\n    advance(sscVar, FiniteDuration(batchDuration.milliseconds, TimeUnit.MILLISECONDS))\n  }\n\n}\n"}}}
+[2019-08-13 16:04:51,174] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala","languageId":"scala","version":1,"text":"// Copyright (C) 2011-2012 the original author or authors.\n// See the LICENCE.txt file distributed with this work for additional\n// information regarding copyright ownership.\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n// http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage org.spark.stream\n\nimport scala.concurrent.duration.FiniteDuration\n\nimport org.apache.spark.streaming._\nimport org.scalatest._\n\ntrait SparkStreamingSpec extends SparkSpec {\n  this: Suite =>\n\n  import java.nio.file.Files\n  import java.util.concurrent.TimeUnit\n\n  import ClockWrapper._\n\n  private var sscVar: StreamingContext = _ // scalastyle:ignore var.field\n\n  override def beforeAll(): Unit = {\n    super.beforeAll()\n\n    sscVar = new StreamingContext(sc, batchDuration)\n    sscVar.checkpoint(checkpointDir)\n  }\n\n  def batchDuration: Duration = Seconds(1)\n\n  def checkpointDir: String = Files.createTempDirectory(this.getClass.getSimpleName).toUri.toString\n\n  override def afterAll(): Unit = {\n    if (sscVar != null) {\n      sscVar.stop(stopSparkContext = false, stopGracefully = false)\n      sscVar = null // scalastyle:ignore null\n    }\n\n    super.afterAll()\n  }\n\n  override def sparkConfig: Map[String, String] = {\n    super.sparkConfig + (\"spark.streaming.clock\" -> \"org.apache.spark.streaming.util.ManualClock\")\n  }\n\n  def ssc: StreamingContext = sscVar\n\n  def advanceClock(timeToAdd: FiniteDuration): Unit = {\n    advance(sscVar, timeToAdd)\n  }\n\n  def advanceClockOneBatch(): Unit = {\n    advance(sscVar, FiniteDuration(batchDuration.milliseconds, TimeUnit.MILLISECONDS))\n  }\n\n}\n"}}}
+[2019-08-13 16:04:51,174] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 187
+[2019-08-13 16:04:51,174] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 187
+[2019-08-13 16:04:51,174] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":627,"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala"}}}
+[2019-08-13 16:04:51,174] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":627,"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala"}}}
+[2019-08-13 16:04:51,175] DEBUG langserver.core.MessageWriter - Content-Length: 38
+
+
+
+{"jsonrpc":"2.0","result":[],"id":627}
+[2019-08-13 16:04:51,175] DEBUG langserver.core.MessageWriter - Content-Length: 38
+
+
+
+{"jsonrpc":"2.0","result":[],"id":627}
+[2019-08-13 16:04:51,175] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":[],"id":627}
+[2019-08-13 16:04:51,175] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":[],"id":627}
+[2019-08-13 16:04:53,819] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 172
+[2019-08-13 16:04:53,819] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 172
+[2019-08-13 16:04:53,819] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala"}}}
+[2019-08-13 16:04:53,819] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala"}}}
+[2019-08-13 16:04:53,820] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala from Ensime.
+[2019-08-13 16:04:53,820] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkStreamingSpec.scala from Ensime.
+[2019-08-13 16:04:53,833] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 1719
+[2019-08-13 16:04:53,833] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 1719
+[2019-08-13 16:04:53,833] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala","languageId":"scala","version":1,"text":"// Copyright (C) 2011-2012 the original author or authors.\n// See the LICENCE.txt file distributed with this work for additional\n// information regarding copyright ownership.\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n// http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage org.spark.stream\n\nimport org.apache.spark._\nimport org.scalatest._\n\ntrait SparkSpec extends BeforeAndAfterAll {\n  this: Suite =>\n\n  private var scVar: SparkContext = _ // scalastyle:ignore var.field\n\n  override def beforeAll(): Unit = {\n    super.beforeAll()\n\n    val conf = new SparkConf()\n      .setMaster(\"local[*]\")\n      .setAppName(this.getClass.getSimpleName)\n\n    sparkConfig.foreach { case (k, v) => conf.setIfMissing(k, v) }\n\n    scVar = new SparkContext(conf)\n  }\n\n  def sparkConfig: Map[String, String] = Map.empty\n\n  override def afterAll(): Unit = {\n    if (scVar != null) {\n      scVar.stop()\n      scVar = null // scalastyle:ignore null\n    }\n    super.afterAll()\n  }\n\n  def sc: SparkContext = scVar\n\n}\n"}}}
+[2019-08-13 16:04:53,833] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala","languageId":"scala","version":1,"text":"// Copyright (C) 2011-2012 the original author or authors.\n// See the LICENCE.txt file distributed with this work for additional\n// information regarding copyright ownership.\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n// http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage org.spark.stream\n\nimport org.apache.spark._\nimport org.scalatest._\n\ntrait SparkSpec extends BeforeAndAfterAll {\n  this: Suite =>\n\n  private var scVar: SparkContext = _ // scalastyle:ignore var.field\n\n  override def beforeAll(): Unit = {\n    super.beforeAll()\n\n    val conf = new SparkConf()\n      .setMaster(\"local[*]\")\n      .setAppName(this.getClass.getSimpleName)\n\n    sparkConfig.foreach { case (k, v) => conf.setIfMissing(k, v) }\n\n    scVar = new SparkContext(conf)\n  }\n\n  def sparkConfig: Map[String, String] = Map.empty\n\n  override def afterAll(): Unit = {\n    if (scVar != null) {\n      scVar.stop()\n      scVar = null // scalastyle:ignore null\n    }\n    super.afterAll()\n  }\n\n  def sc: SparkContext = scVar\n\n}\n"}}}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 178
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 178
+[2019-08-13 16:04:53,835] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":628,"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"}}}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":628,"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"}}}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageWriter - Content-Length: 38
+
+
+
+{"jsonrpc":"2.0","result":[],"id":628}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageWriter - Content-Length: 38
+
+
+
+{"jsonrpc":"2.0","result":[],"id":628}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":[],"id":628}
+[2019-08-13 16:04:53,835] DEBUG langserver.core.MessageWriter - payload: {"jsonrpc":"2.0","result":[],"id":628}
+[2019-08-13 16:07:27,547] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 206
+[2019-08-13 16:07:27,547] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 206
+[2019-08-13 16:07:27,547] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":629,"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"},"position":{"line":5,"character":41}}}
+[2019-08-13 16:07:27,547] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":629,"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"},"position":{"line":5,"character":41}}}
+[2019-08-13 16:07:27,548] INFO org.github.dragos.vscode.EnsimeLanguageServer - Got hover request at (5, 41).
+[2019-08-13 16:07:27,548] INFO org.github.dragos.vscode.EnsimeLanguageServer - Got hover request at (5, 41).
+[2019-08-13 16:07:27,549] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - DocUriAtPointReq future completed: succes? false
+[2019-08-13 16:07:27,549] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - DocUriAtPointReq future completed: succes? false
+[2019-08-13 16:07:27,549] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - TypeAtPointReq future completed: succes? false
+[2019-08-13 16:07:27,549] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - TypeAtPointReq future completed: succes? false
+[2019-08-13 16:07:27,596] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 64
+[2019-08-13 16:07:27,596] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 64
+[2019-08-13 16:07:27,596] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"$/cancelRequest","params":{"id":629}}
+[2019-08-13 16:07:27,596] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"$/cancelRequest","params":{"id":629}}
+[2019-08-13 16:07:27,597] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(629)
+[2019-08-13 16:07:27,597] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(629)
+[2019-08-13 16:07:28,046] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 207
+[2019-08-13 16:07:28,046] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 207
+[2019-08-13 16:07:28,047] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":630,"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"},"position":{"line":10,"character":38}}}
+[2019-08-13 16:07:28,047] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","id":630,"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"},"position":{"line":10,"character":38}}}
+[2019-08-13 16:07:28,047] INFO org.github.dragos.vscode.EnsimeLanguageServer - Got hover request at (10, 38).
+[2019-08-13 16:07:28,047] INFO org.github.dragos.vscode.EnsimeLanguageServer - Got hover request at (10, 38).
+[2019-08-13 16:07:28,047] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - DocUriAtPointReq future completed: succes? false
+[2019-08-13 16:07:28,047] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - DocUriAtPointReq future completed: succes? false
+[2019-08-13 16:07:28,047] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - TypeAtPointReq future completed: succes? false
+[2019-08-13 16:07:28,047] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - TypeAtPointReq future completed: succes? false
+[2019-08-13 16:07:28,119] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 64
+[2019-08-13 16:07:28,119] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 64
+[2019-08-13 16:07:28,120] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"$/cancelRequest","params":{"id":630}}
+[2019-08-13 16:07:28,120] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"$/cancelRequest","params":{"id":630}}
+[2019-08-13 16:07:28,120] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(630)
+[2019-08-13 16:07:28,120] ERROR org.github.dragos.vscode.EnsimeLanguageServer - Unknown notification CancelRequest(630)
+[2019-08-14 08:57:46,429] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 163
+[2019-08-14 08:57:46,429] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 163
+[2019-08-14 08:57:46,429] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"}}}
+[2019-08-14 08:57:46,429] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala"}}}
+[2019-08-14 08:57:46,429] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala from Ensime.
+[2019-08-14 08:57:46,429] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/test/scala/org/spark/stream/SparkSpec.scala from Ensime.
+[2019-08-14 09:31:39,425] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2746
+[2019-08-14 09:31:39,425] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2746
+[2019-08-14 09:31:39,425] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121},"contentChanges":[{"text":"package org.spark.stream\n\nimport org.apache.spark.sql.SparkSession\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.types.{StructField, _}\n\n/**\n  * Spark Streaming Kafka Cassandra\n  */\nobject NetworkQualityStreamingJob extends App {\n\n  val config = ConfigUtil.getConfig(\"spark\")\n\n  // spark config\n  val spark: SparkSession = SparkSession.builder\n    .appName(getClass.getSimpleName)\n    .config(\"spark.jars.packages\",\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.3\")\n    .config(\"spark.executor.memory\", \"10G\")\n    .config(\"spark.driver.memory\", \"10G\")\n    .config(\"spark.driver.maxResultSize\", \"10G\")\n    .getOrCreate()\n\n  import spark.implicits._\n\n  // define schema for json\n\nval patient= StructType(ArrayType(\n  StructField(\"patient_id\", LongType, True),\n  StructField(\"date_created\", LongType, True),\n  StructField(\"creator\", LongType, True)\n))\n\nval schema= StructType(ArrayType(\n                StructField(\"schema\", StringType,\n                StructField(\"payload\", \n                           StructType(ArrayType(\n                                StructField(\"before\", StringType,\n                                StructField(\"after\", patient)\n                           ))\n                           )\n))\n\n  // create stream\n  val df = spark\n    .readStream\n    .format(\"kafka\")\n    .option(\"kafka.bootstrap.servers\", \"localhost:9092\")\n    .option(\"subscribe\", \"dbserver1.openmrs.patient\")\n    .load()\n    .selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")\n    .select(from_json($\"value\", schema).alias(\"parsed_value\"))\n  //.withColumn(\"after\", explode($\"parsed_value.payload\"))\n\n  df.createOrReplaceTempView(\"patients\")\n\n  val sql =\n    \"\"\"\n    SELECT\n      WINDOW(FROM_UNIXTIME(parsed_value.payload.after.date_created/1000), \"1 hour\", \"10 minutes\") AS eventWindow,\n      parsed_value.payload.after.creator AS creator,\n      AVG(parsed_value.payload.after.patient_id) AS avgAge,\n      MIN(parsed_value.payload.after.patient_id) AS minAge,\n      MAX(parsed_value.payload.after.patient_id) AS maxAge\n    FROM\n      patients\n    GROUP BY\n      eventWindow,\n      creator\n    ORDER BY\n      eventWindow,\n      creator\n  \"\"\"\n  val query = spark.sql(sql)\n\n  // show results\n  val result = query.writeStream\n    .format(\"console\")\n    .outputMode(\"complete\")\n    .option(\"truncate\", \"false\")\n    .start()\n\n  result.awaitTermination()\n\n}"}]}}
+[2019-08-14 09:31:39,425] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121},"contentChanges":[{"text":"package org.spark.stream\n\nimport org.apache.spark.sql.SparkSession\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.types.{StructField, _}\n\n/**\n  * Spark Streaming Kafka Cassandra\n  */\nobject NetworkQualityStreamingJob extends App {\n\n  val config = ConfigUtil.getConfig(\"spark\")\n\n  // spark config\n  val spark: SparkSession = SparkSession.builder\n    .appName(getClass.getSimpleName)\n    .config(\"spark.jars.packages\",\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.3\")\n    .config(\"spark.executor.memory\", \"10G\")\n    .config(\"spark.driver.memory\", \"10G\")\n    .config(\"spark.driver.maxResultSize\", \"10G\")\n    .getOrCreate()\n\n  import spark.implicits._\n\n  // define schema for json\n\nval patient= StructType(ArrayType(\n  StructField(\"patient_id\", LongType, True),\n  StructField(\"date_created\", LongType, True),\n  StructField(\"creator\", LongType, True)\n))\n\nval schema= StructType(ArrayType(\n                StructField(\"schema\", StringType,\n                StructField(\"payload\", \n                           StructType(ArrayType(\n                                StructField(\"before\", StringType,\n                                StructField(\"after\", patient)\n                           ))\n                           )\n))\n\n  // create stream\n  val df = spark\n    .readStream\n    .format(\"kafka\")\n    .option(\"kafka.bootstrap.servers\", \"localhost:9092\")\n    .option(\"subscribe\", \"dbserver1.openmrs.patient\")\n    .load()\n    .selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")\n    .select(from_json($\"value\", schema).alias(\"parsed_value\"))\n  //.withColumn(\"after\", explode($\"parsed_value.payload\"))\n\n  df.createOrReplaceTempView(\"patients\")\n\n  val sql =\n    \"\"\"\n    SELECT\n      WINDOW(FROM_UNIXTIME(parsed_value.payload.after.date_created/1000), \"1 hour\", \"10 minutes\") AS eventWindow,\n      parsed_value.payload.after.creator AS creator,\n      AVG(parsed_value.payload.after.patient_id) AS avgAge,\n      MIN(parsed_value.payload.after.patient_id) AS minAge,\n      MAX(parsed_value.payload.after.patient_id) AS maxAge\n    FROM\n      patients\n    GROUP BY\n      eventWindow,\n      creator\n    ORDER BY\n      eventWindow,\n      creator\n  \"\"\"\n  val query = spark.sql(sql)\n\n  // show results\n  val result = query.writeStream\n    .format(\"console\")\n    .outputMode(\"complete\")\n    .option(\"truncate\", \"false\")\n    .start()\n\n  result.awaitTermination()\n\n}"}]}}
+[2019-08-14 09:31:39,425] ERROR langserver.core.Connection - failed notification handler
+java.lang.NullPointerException: null
+	at org.github.dragos.vscode.EnsimeLanguageServer.onChangeTextDocument(EnsimeLanguageServer.scala:167)
+	at langserver.core.LanguageServer.$anonfun$new$1(LanguageServer.scala:42)
+	at langserver.core.LanguageServer.$anonfun$new$1$adapted(LanguageServer.scala:40)
+	at langserver.core.Connection.$anonfun$notifySubscribers$2(Connection.scala:42)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.util.Try$.apply(Try.scala:209)
+	at langserver.core.Connection.$anonfun$notifySubscribers$1(Connection.scala:42)
+	at scala.collection.immutable.List.foreach(List.scala:389)
+	at scala.collection.generic.TraversableForwarder.foreach(TraversableForwarder.scala:35)
+	at scala.collection.generic.TraversableForwarder.foreach$(TraversableForwarder.scala:35)
+	at scala.collection.mutable.ListBuffer.foreach(ListBuffer.scala:44)
+	at langserver.core.Connection.notifySubscribers(Connection.scala:41)
+	at langserver.core.Connection.$anonfun$start$4(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$4$adapted(Connection.scala:99)
+	at play.api.libs.json.JsSuccess.fold(JsResult.scala:15)
+	at langserver.core.Connection.$anonfun$start$2(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$2$adapted(Connection.scala:97)
+	at scala.Option.fold(Option.scala:158)
+	at langserver.core.Connection.start(Connection.scala:97)
+	at langserver.core.LanguageServer.start(LanguageServer.scala:50)
+	at org.github.dragos.vscode.EnsimeLanguageServer.start(EnsimeLanguageServer.scala:51)
+	at org.github.dragos.vscode.Main$.main(Main.scala:23)
+	at org.github.dragos.vscode.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.cli.qn.a(Unknown Source)
+	at coursier.cli.qm.i(Unknown Source)
+	at coursier.cli.qs.a(Unknown Source)
+	at c.g.a.c(Unknown Source)
+	at a.b.d_(Unknown Source)
+	at c.b.d.E.g(Unknown Source)
+	at c.b.e.aU.g(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.qm.b(Unknown Source)
+	at coursier.cli.M.b(Unknown Source)
+	at a.J.d_(Unknown Source)
+	at c.E.h(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.Coursier.main(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.Bootstrap.main(Bootstrap.java:412)
+[2019-08-14 09:31:39,425] ERROR langserver.core.Connection - failed notification handler
+java.lang.NullPointerException: null
+	at org.github.dragos.vscode.EnsimeLanguageServer.onChangeTextDocument(EnsimeLanguageServer.scala:167)
+	at langserver.core.LanguageServer.$anonfun$new$1(LanguageServer.scala:42)
+	at langserver.core.LanguageServer.$anonfun$new$1$adapted(LanguageServer.scala:40)
+	at langserver.core.Connection.$anonfun$notifySubscribers$2(Connection.scala:42)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.util.Try$.apply(Try.scala:209)
+	at langserver.core.Connection.$anonfun$notifySubscribers$1(Connection.scala:42)
+	at scala.collection.immutable.List.foreach(List.scala:389)
+	at scala.collection.generic.TraversableForwarder.foreach(TraversableForwarder.scala:35)
+	at scala.collection.generic.TraversableForwarder.foreach$(TraversableForwarder.scala:35)
+	at scala.collection.mutable.ListBuffer.foreach(ListBuffer.scala:44)
+	at langserver.core.Connection.notifySubscribers(Connection.scala:41)
+	at langserver.core.Connection.$anonfun$start$4(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$4$adapted(Connection.scala:99)
+	at play.api.libs.json.JsSuccess.fold(JsResult.scala:15)
+	at langserver.core.Connection.$anonfun$start$2(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$2$adapted(Connection.scala:97)
+	at scala.Option.fold(Option.scala:158)
+	at langserver.core.Connection.start(Connection.scala:97)
+	at langserver.core.LanguageServer.start(LanguageServer.scala:50)
+	at org.github.dragos.vscode.EnsimeLanguageServer.start(EnsimeLanguageServer.scala:51)
+	at org.github.dragos.vscode.Main$.main(Main.scala:23)
+	at org.github.dragos.vscode.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.cli.qn.a(Unknown Source)
+	at coursier.cli.qm.i(Unknown Source)
+	at coursier.cli.qs.a(Unknown Source)
+	at c.g.a.c(Unknown Source)
+	at a.b.d_(Unknown Source)
+	at c.b.d.E.g(Unknown Source)
+	at c.b.e.aU.g(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.qm.b(Unknown Source)
+	at coursier.cli.M.b(Unknown Source)
+	at a.J.d_(Unknown Source)
+	at c.E.h(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.Coursier.main(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.Bootstrap.main(Bootstrap.java:412)
+[2019-08-14 09:31:40,944] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2746
+[2019-08-14 09:31:40,944] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 2746
+[2019-08-14 09:31:40,944] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121},"contentChanges":[{"text":"package org.spark.stream\n\nimport org.apache.spark.sql.SparkSession\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.types.{StructField, _}\n\n/**\n  * Spark Streaming Kafka Cassandra\n  */\nobject NetworkQualityStreamingJob extends App {\n\n  val config = ConfigUtil.getConfig(\"spark\")\n\n  // spark config\n  val spark: SparkSession = SparkSession.builder\n    .appName(getClass.getSimpleName)\n    .config(\"spark.jars.packages\",\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.3\")\n    .config(\"spark.executor.memory\", \"10G\")\n    .config(\"spark.driver.memory\", \"10G\")\n    .config(\"spark.driver.maxResultSize\", \"10G\")\n    .getOrCreate()\n\n  import spark.implicits._\n\n  // define schema for json\n\nval patient= StructType(ArrayType(\n  StructField(\"patient_id\", LongType, True),\n  StructField(\"date_created\", LongType, True),\n  StructField(\"creator\", LongType, True)\n))\n\nval schema= StructType(ArrayType(\n                StructField(\"schema\", StringType,\n                StructField(\"payload\", \n                           StructType(ArrayType(\n                                StructField(\"before\", StringType,\n                                StructField(\"after\", patient)\n                           ))\n                           )\n))\n\n  // create stream\n  val df = spark\n    .readStream\n    .format(\"kafka\")\n    .option(\"kafka.bootstrap.servers\", \"localhost:9092\")\n    .option(\"subscribe\", \"dbserver1.openmrs.patient\")\n    .load()\n    .selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")\n    .select(from_json($\"value\", schema).alias(\"parsed_value\"))\n  //.withColumn(\"after\", explode($\"parsed_value.payload\"))\n\n  df.createOrReplaceTempView(\"patients\")\n\n  val sql =\n    \"\"\"\n    SELECT\n      WINDOW(FROM_UNIXTIME(parsed_value.payload.after.date_created/1000), \"1 hour\", \"10 minutes\") AS eventWindow,\n      parsed_value.payload.after.creator AS creator,\n      AVG(parsed_value.payload.after.patient_id) AS avgAge,\n      MIN(parsed_value.payload.after.patient_id) AS minAge,\n      MAX(parsed_value.payload.after.patient_id) AS maxAge\n    FROM\n      patients\n    GROUP BY\n      eventWindow,\n      creator\n    ORDER BY\n      eventWindow,\n      creator\n  \"\"\"\n  val query = spark.sql(sql)\n\n  // show results\n  val result = query.writeStream\n    .format(\"console\")\n    .outputMode(\"complete\")\n    .option(\"truncate\", \"false\")\n    .start()\n\n  result.awaitTermination()\n\n}"}]}}
+[2019-08-14 09:31:40,944] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didChange","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121},"contentChanges":[{"text":"package org.spark.stream\n\nimport org.apache.spark.sql.SparkSession\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.types.{StructField, _}\n\n/**\n  * Spark Streaming Kafka Cassandra\n  */\nobject NetworkQualityStreamingJob extends App {\n\n  val config = ConfigUtil.getConfig(\"spark\")\n\n  // spark config\n  val spark: SparkSession = SparkSession.builder\n    .appName(getClass.getSimpleName)\n    .config(\"spark.jars.packages\",\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.3\")\n    .config(\"spark.executor.memory\", \"10G\")\n    .config(\"spark.driver.memory\", \"10G\")\n    .config(\"spark.driver.maxResultSize\", \"10G\")\n    .getOrCreate()\n\n  import spark.implicits._\n\n  // define schema for json\n\nval patient= StructType(ArrayType(\n  StructField(\"patient_id\", LongType, True),\n  StructField(\"date_created\", LongType, True),\n  StructField(\"creator\", LongType, True)\n))\n\nval schema= StructType(ArrayType(\n                StructField(\"schema\", StringType,\n                StructField(\"payload\", \n                           StructType(ArrayType(\n                                StructField(\"before\", StringType,\n                                StructField(\"after\", patient)\n                           ))\n                           )\n))\n\n  // create stream\n  val df = spark\n    .readStream\n    .format(\"kafka\")\n    .option(\"kafka.bootstrap.servers\", \"localhost:9092\")\n    .option(\"subscribe\", \"dbserver1.openmrs.patient\")\n    .load()\n    .selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")\n    .select(from_json($\"value\", schema).alias(\"parsed_value\"))\n  //.withColumn(\"after\", explode($\"parsed_value.payload\"))\n\n  df.createOrReplaceTempView(\"patients\")\n\n  val sql =\n    \"\"\"\n    SELECT\n      WINDOW(FROM_UNIXTIME(parsed_value.payload.after.date_created/1000), \"1 hour\", \"10 minutes\") AS eventWindow,\n      parsed_value.payload.after.creator AS creator,\n      AVG(parsed_value.payload.after.patient_id) AS avgAge,\n      MIN(parsed_value.payload.after.patient_id) AS minAge,\n      MAX(parsed_value.payload.after.patient_id) AS maxAge\n    FROM\n      patients\n    GROUP BY\n      eventWindow,\n      creator\n    ORDER BY\n      eventWindow,\n      creator\n  \"\"\"\n  val query = spark.sql(sql)\n\n  // show results\n  val result = query.writeStream\n    .format(\"console\")\n    .outputMode(\"complete\")\n    .option(\"truncate\", \"false\")\n    .start()\n\n  result.awaitTermination()\n\n}"}]}}
+[2019-08-14 09:31:40,944] ERROR langserver.core.Connection - failed notification handler
+java.lang.NullPointerException: null
+	at org.github.dragos.vscode.EnsimeLanguageServer.onChangeTextDocument(EnsimeLanguageServer.scala:167)
+	at langserver.core.LanguageServer.$anonfun$new$1(LanguageServer.scala:42)
+	at langserver.core.LanguageServer.$anonfun$new$1$adapted(LanguageServer.scala:40)
+	at langserver.core.Connection.$anonfun$notifySubscribers$2(Connection.scala:42)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.util.Try$.apply(Try.scala:209)
+	at langserver.core.Connection.$anonfun$notifySubscribers$1(Connection.scala:42)
+	at scala.collection.immutable.List.foreach(List.scala:389)
+	at scala.collection.generic.TraversableForwarder.foreach(TraversableForwarder.scala:35)
+	at scala.collection.generic.TraversableForwarder.foreach$(TraversableForwarder.scala:35)
+	at scala.collection.mutable.ListBuffer.foreach(ListBuffer.scala:44)
+	at langserver.core.Connection.notifySubscribers(Connection.scala:41)
+	at langserver.core.Connection.$anonfun$start$4(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$4$adapted(Connection.scala:99)
+	at play.api.libs.json.JsSuccess.fold(JsResult.scala:15)
+	at langserver.core.Connection.$anonfun$start$2(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$2$adapted(Connection.scala:97)
+	at scala.Option.fold(Option.scala:158)
+	at langserver.core.Connection.start(Connection.scala:97)
+	at langserver.core.LanguageServer.start(LanguageServer.scala:50)
+	at org.github.dragos.vscode.EnsimeLanguageServer.start(EnsimeLanguageServer.scala:51)
+	at org.github.dragos.vscode.Main$.main(Main.scala:23)
+	at org.github.dragos.vscode.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.cli.qn.a(Unknown Source)
+	at coursier.cli.qm.i(Unknown Source)
+	at coursier.cli.qs.a(Unknown Source)
+	at c.g.a.c(Unknown Source)
+	at a.b.d_(Unknown Source)
+	at c.b.d.E.g(Unknown Source)
+	at c.b.e.aU.g(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.qm.b(Unknown Source)
+	at coursier.cli.M.b(Unknown Source)
+	at a.J.d_(Unknown Source)
+	at c.E.h(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.Coursier.main(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.Bootstrap.main(Bootstrap.java:412)
+[2019-08-14 09:31:40,944] ERROR langserver.core.Connection - failed notification handler
+java.lang.NullPointerException: null
+	at org.github.dragos.vscode.EnsimeLanguageServer.onChangeTextDocument(EnsimeLanguageServer.scala:167)
+	at langserver.core.LanguageServer.$anonfun$new$1(LanguageServer.scala:42)
+	at langserver.core.LanguageServer.$anonfun$new$1$adapted(LanguageServer.scala:40)
+	at langserver.core.Connection.$anonfun$notifySubscribers$2(Connection.scala:42)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.util.Try$.apply(Try.scala:209)
+	at langserver.core.Connection.$anonfun$notifySubscribers$1(Connection.scala:42)
+	at scala.collection.immutable.List.foreach(List.scala:389)
+	at scala.collection.generic.TraversableForwarder.foreach(TraversableForwarder.scala:35)
+	at scala.collection.generic.TraversableForwarder.foreach$(TraversableForwarder.scala:35)
+	at scala.collection.mutable.ListBuffer.foreach(ListBuffer.scala:44)
+	at langserver.core.Connection.notifySubscribers(Connection.scala:41)
+	at langserver.core.Connection.$anonfun$start$4(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$4$adapted(Connection.scala:99)
+	at play.api.libs.json.JsSuccess.fold(JsResult.scala:15)
+	at langserver.core.Connection.$anonfun$start$2(Connection.scala:99)
+	at langserver.core.Connection.$anonfun$start$2$adapted(Connection.scala:97)
+	at scala.Option.fold(Option.scala:158)
+	at langserver.core.Connection.start(Connection.scala:97)
+	at langserver.core.LanguageServer.start(LanguageServer.scala:50)
+	at org.github.dragos.vscode.EnsimeLanguageServer.start(EnsimeLanguageServer.scala:51)
+	at org.github.dragos.vscode.Main$.main(Main.scala:23)
+	at org.github.dragos.vscode.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.cli.qn.a(Unknown Source)
+	at coursier.cli.qm.i(Unknown Source)
+	at coursier.cli.qs.a(Unknown Source)
+	at c.g.a.c(Unknown Source)
+	at a.b.d_(Unknown Source)
+	at c.b.d.E.g(Unknown Source)
+	at c.b.e.aU.g(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.qm.b(Unknown Source)
+	at coursier.cli.M.b(Unknown Source)
+	at a.J.d_(Unknown Source)
+	at c.E.h(Unknown Source)
+	at a.c.a(Unknown Source)
+	at coursier.cli.Coursier.main(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at coursier.Bootstrap.main(Bootstrap.java:412)
+[2019-08-14 09:31:40,944] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 186
+[2019-08-14 09:31:40,944] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 186
+[2019-08-14 09:31:40,944] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didSave","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121}}}
+[2019-08-14 09:31:40,944] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didSave","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala","version":121}}}
+[2019-08-14 09:31:40,944] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - saveTextDocuemnt TextDocumentIdentifier(file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala)
+[2019-08-14 09:31:40,944] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - saveTextDocuemnt TextDocumentIdentifier(file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala)
+[2019-08-14 09:31:40,945] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 173
+[2019-08-14 09:31:40,945] DEBUG langserver.core.MessageReader - Received headers:
+Content-Length: 173
+[2019-08-14 09:31:40,945] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala"}}}
+[2019-08-14 09:31:40,945] DEBUG langserver.core.Connection - Received {"jsonrpc":"2.0","method":"textDocument/didClose","params":{"textDocument":{"uri":"file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala"}}}
+[2019-08-14 09:31:40,945] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala from Ensime.
+[2019-08-14 09:31:40,945] DEBUG org.github.dragos.vscode.EnsimeLanguageServer - Removing file:///home/air/openmrs-etl/src/main/scala/org/spark/stream/StructuredStreaming.scala from Ensime.

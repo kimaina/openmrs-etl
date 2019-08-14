@@ -53,14 +53,16 @@ services:
     container_name: kafka
     ports:
      - 9092:9092
+     - 9999:9999
     expose:
      - 9092
+     - 9999
     links:
      - zookeeper
     environment:
      - ZOOKEEPER_CONNECT=zookeeper:2181
      - CREATE_TOPICS= "input:1:3,output:1:3"
-    
+
   connect:
     image: debezium/connect:${DEBEZIUM_VERSION}
     ports:
@@ -164,6 +166,7 @@ services:
       APPLICATION_SECRET: letmein
       KM_ARGS: -Djava.net.preferIPv4Stack=true
 
+ 
 # TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker
 ## Not really important
 #  kafka-connect-ui:

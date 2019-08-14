@@ -23,22 +23,22 @@ object NetworkQualityStreamingJob extends App {
   import spark.implicits._
 
   // define schema for json
-  val schema = StructType(
-    List(
-      StructField("deviceId", StringType, true),
-      StructField("time", LongType, true),
-      StructField("signals", ArrayType(StructType(Array(
-        StructField("time", LongType, true),
-        StructField("networkType", StringType, true),
-        StructField("rxSpeed", DoubleType, true),
-        StructField("txSpeed", DoubleType, true),
-        StructField("rxData", LongType, true),
-        StructField("txData", LongType, true),
-        StructField("latitude", DoubleType, true),
-        StructField("longitude", DoubleType, true)
-      ))))
-    )
-  )
+
+val patient= StructType(ArrayType(
+  StructField("patient_id", LongType, True),
+  StructField("date_created", LongType, True),
+  StructField("creator", LongType, True)
+))
+
+val schema= StructType(ArrayType(
+                StructField("schema", StringType,
+                StructField("payload", 
+                           StructType(ArrayType(
+                                StructField("before", StringType,
+                                StructField("after", patient)
+                           ))
+                           )
+))
 
   // create stream
   val df = spark

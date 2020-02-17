@@ -22,6 +22,17 @@ services:
     volumes:
         - ./mysql.cnf:/etc/mysql/conf.d/custom.cnf
         - ./dbdump:/docker-entrypoint-initdb.d
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - '7070:80'
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: debezium 
 
   openmrs:
     restart: "always"
@@ -65,6 +76,9 @@ services:
 
   connect:
     image: debezium/connect:${DEBEZIUM_VERSION}
+    restart: always
+    depends_on:
+     - kafka
     ports:
      - 8083:8083
     links:
@@ -75,6 +89,7 @@ services:
      - GROUP_ID=1
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+     - STATUS_STORAGE_TOPIC=my_connect_statuses
     container_name: mysql-connect
 
 # other important containers - uncomment to install
@@ -86,7 +101,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeper:2181
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
       SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
     depends_on:

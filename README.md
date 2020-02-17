@@ -28,8 +28,10 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 Please use either spark(scala)/pyspark/ksql. For this project I'll demo using ksql
 
 ```
-
 If everything runs as expected, expect to see all these containers running:
+
+![alt text](pics/code137.png )
+In order to avoid crashing of containers i.e code 137, please increase memory size and cpu of your docker VM to > 8gb and >4 cores as shown in the figure above
 
 ![alt text](pics/containers.png )
 

@@ -46,9 +46,20 @@ Credentials on shipped demo data:
   - Username: admin
   - Password: Admin123
   
-## Spark Jobs Monitor & Visualization
-http://localhost:4040
-![alt text](pics/spark%20jobs.png )
+## Spark Master and Worker Nodes
+
+
+![alt text](pics/spark24.png )
+
+* Master Node: http://localhost:4040/
+* Worker Node 1: http://localhost:8100/
+* Worker Node 2: http://localhost:8200/
+* Worker Node 3: http://localhost:8300/
+* Worker Node 4: http://localhost:8400/
+
+Besed on: https://github.com/big-data-europe/docker-spark/blob/master/README.md
+
+for spark on kubernetes deployment: https://github.com/big-data-europe/docker-spark/blob/master/README.md
 
 ## Docker Container Manager: Portainer
 http://localhost:9000
@@ -131,19 +142,24 @@ project
 │   docker-compose.yaml
 │   
 │
-└───src
-│   │   file011.txt
-│   │   file012.txt
-│   │
+template
+│   │   java
+│   │   python
+│   │   scala
 │   └───subfolder1
 │       │   file111.txt
 │       │   file112.txt
 │       │   ...
-│   
-└───project
-    │   file021.txt
-    │   file022.txt
+
 ```
+
+## Writing batch/streaming jobs
+
+* Java Template: [Java](template/java/README.md)
+* Python Template: [Python](template/python/README.md)
+* Scala Template: [Scala](template/scala/README.md)
+
+Besed on: https://github.com/big-data-europe/docker-spark/blob/master/README.md
 
 
 ## KAFKA CLUSTER DESIGN CONCERN

@@ -233,7 +233,7 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
  
-# TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker
+# TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker, https://github.com/jupyter-incubator/sparkmagic/blob/master/docker-compose.yml
 
 
 volumes:

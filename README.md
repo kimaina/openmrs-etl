@@ -45,6 +45,15 @@ Openmrs Application will be eventually accessible on http://localhost:8080/openm
 Credentials on shipped demo data:
   - Username: admin
   - Password: Admin123
+
+## Example Batch using Jupyter Notebook (Spark Standalone Mode)
+
+```
+conda install pyspark
+
+jupyter notebook encounter_job.ipynb 
+
+```
   
 ## Spark Master and Worker Nodes
 
@@ -160,3 +169,5 @@ template
 * Scala Template: [Scala](template/scala/README.md)
 
 Besed on: https://github.com/big-data-europe/docker-spark/blob/master/README.md
+
+

@@ -3,6 +3,8 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer
+    networks:
+      - dockernet   
     restart: "always"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -10,6 +12,8 @@ services:
       - 9000:9000
   mysql:
     image: mysql:5.7
+    networks:
+      - dockernet   
     ports:
       - "3306:3306"
     container_name: mysql
@@ -18,7 +22,7 @@ services:
           - MYSQL_ROOT_PASSWORD=debezium
           - MYSQL_USER=mysqluser
           - MYSQL_PASSWORD=mysqlpw
-          - MYSQL_ROOT_HOST=172.%    # Allow docker contatiners to connect to mysql
+          - MYSQL_ROOT_HOST=%    # Allow docker contatiners to connect to mysql
     volumes:
         - ./mysql.cnf:/etc/mysql/conf.d/custom.cnf
         - ./dbdump:/docker-entrypoint-initdb.d
@@ -27,6 +31,8 @@ services:
       - mysql
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    networks:
+      - dockernet   
     restart: always
     ports:
       - '7070:80'
@@ -38,6 +44,8 @@ services:
     restart: "always"
     image: openmrs/openmrs-reference-application-distro:latest
     container_name: openmrs
+    networks:
+      - dockernet   
     depends_on:
       - mysql
     ports:
@@ -52,6 +60,8 @@ services:
       #MODULE_WEB_ADMIN: 'true'
   zookeeper:
     image: debezium/zookeeper:${DEBEZIUM_VERSION}
+    networks:
+      - dockernet   
     ports:
      - 2181:2181
      - 2888:2888
@@ -60,6 +70,8 @@ services:
   kafka:
     image: debezium/kafka:${DEBEZIUM_VERSION}
     container_name: kafka
+    networks:
+      - dockernet   
     ports:
      - 9092:9092
      - 9999:9999
@@ -75,6 +87,8 @@ services:
   connect:
     image: debezium/connect:${DEBEZIUM_VERSION}
     restart: always
+    networks:
+      - dockernet   
     depends_on:
      - kafka
     ports:
@@ -92,6 +106,8 @@ services:
     container_name: kafka-schema-registry
     image: confluentinc/cp-schema-registry:4.0.0
     hostname: kafka-schema-registry
+    networks:
+      - dockernet   
     restart: unless-stopped
     ports:
       - "8081:8081"
@@ -107,6 +123,8 @@ services:
     container_name: schema-registry-ui
     image: landoop/schema-registry-ui:0.9.3
     hostname: kafka-schema-registry-ui
+    networks:
+      - dockernet   
     ports:
       - "8001:8000"
     environment:
@@ -119,6 +137,8 @@ services:
     container_name: kafka-rest-proxy
     image: confluentinc/cp-kafka-rest:4.0.0
     hostname: kafka-rest-proxy
+    networks:
+      - dockernet   
     ports:
       - "8082:8082"
     environment:
@@ -150,6 +170,8 @@ services:
   ksql-server:
     container_name: ksql-server
     image: "confluentinc/cp-ksql-server:5.2.2"
+    networks:
+      - dockernet   
     ports:
       - 8088:8088
     depends_on:
@@ -163,6 +185,8 @@ services:
   kafka_manager:
     image: hlebalbau/kafka-manager:1.3.3.18
     container_name: kafka-manager
+    networks:
+      - dockernet   
     ports:
       - "8089:8089"
     expose:
@@ -178,6 +202,8 @@ services:
 
   polynote:
     image: lolhens/polynote
+    networks:
+      - dockernet   
     environment:
       POLYNOTE_CONFIG: |
         listen:
@@ -188,53 +214,66 @@ services:
     volumes:
       - notebooks:/opt/polynote/notebooks
 
-  spark-master:
-    image: bde2020/spark-master:2.4.4-hadoop2.7
+  spark:
+    image: bitnami/spark:2.4.5
     container_name: spark-master
+    networks:
+      - dockernet   
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
     ports:
       - "7077:7077"
       - "4040:8080"
-    environment:
-      - INIT_DAEMON_STEP=setup_spark
   spark-worker-1:
-    image: bde2020/spark-worker:2.4.4-hadoop2.7
+    image: bitnami/spark:2.4.5
     container_name: spark-worker-1
+    hostname: localhost
     depends_on:
-      - spark-master
+      - spark
+    networks:
+      - dockernet   
     ports:
       - "8100:8081"
     environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    #  - SPARK_WORKER_MEMORY=1G
+    #  - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
   spark-worker-2:
-    image: bde2020/spark-worker:2.4.4-hadoop2.7
+    image: bitnami/spark:2.4.5
+    hostname: localhost
     container_name: spark-worker-2
     depends_on:
-      - spark-master
+      - spark
     ports:
       - "8200:8081"
+    networks:
+      - dockernet     
     environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
-  spark-worker-3:
-    image: bde2020/spark-worker:2.4.4-hadoop2.7
-    container_name: spark-worker-3
-    depends_on:
-      - spark-master
-    ports:
-      - "8300:8081"
-    environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
-  spark-worker-4:
-    image: bde2020/spark-worker:2.4.4-hadoop2.7
-    container_name: spark-worker-4
-    depends_on:
-      - spark-master
-    ports:
-      - "8400:8081"
-    environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    #  - SPARK_WORKER_MEMORY=1G
+    #  - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+
+ 
  
 # TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker, https://github.com/jupyter-incubator/sparkmagic/blob/master/docker-compose.yml
 
 
 volumes:
   notebooks:
+
+networks:
+    dockernet:

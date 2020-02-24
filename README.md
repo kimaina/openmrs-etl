@@ -49,7 +49,7 @@ Credentials on shipped demo data:
 ## Example Batch using Jupyter Notebook (Spark Standalone Mode)
 
 ```
-conda install pyspark
+conda install pyspark=2.4.5
 
 jupyter notebook encounter_job.ipynb 
 

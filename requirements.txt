@@ -1,2 +1,2 @@
-pyspark
+pyspark=2.4.5
 findspark

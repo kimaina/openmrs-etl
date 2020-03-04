@@ -267,6 +267,45 @@ services:
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
 
+  spark-worker-3:
+    image: bitnami/spark:2.4.5
+    container_name: spark-worker-3
+    hostname: localhost
+    depends_on:
+      - spark
+    networks:
+      - dockernet   
+    ports:
+      - "8300:8081"
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    #  - SPARK_WORKER_MEMORY=1G
+    #  - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-4:
+    image: bitnami/spark:2.4.5
+    hostname: localhost
+    container_name: spark-worker-4
+    depends_on:
+      - spark
+    ports:
+      - "8400:8081"
+    networks:
+      - dockernet     
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    #  - SPARK_WORKER_MEMORY=1G
+    #  - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+
  
  
 # TODO: https://github.com/EthicalML/kafka-spark-streaming-zeppelin-docker, https://github.com/jupyter-incubator/sparkmagic/blob/master/docker-compose.yml

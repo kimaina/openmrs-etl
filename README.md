@@ -1,4 +1,5 @@
 # Openmrs Real-time Streaming Topology
+[DEPRECATED] Note that this repo has been moved to https://github.com/kimaina/openmrs-elt
 ![alt text](pics/demo2.png )
 
 - The motivation of this project is to provide ability of processing data in **real-time**
